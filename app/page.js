@@ -1,4 +1,4 @@
-import Product from './components/products/products.jsx'
+import Product from './components/productlist/productsList.jsx'
 
 
 
