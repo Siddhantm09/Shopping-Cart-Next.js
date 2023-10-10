@@ -11,6 +11,8 @@ const Navbar = () => {
       </div>
       <div className="links">
         <ul className="flex">
+          <Link href="/signup">Home</Link>
+
           <li className="lists">
             <input className="search-box" placeholder="Search..." />
             <button className="search-btn">
@@ -23,8 +25,11 @@ const Navbar = () => {
             </Link>
           </li>
           <li className="lists">
-            <Link href="/cart" className="cart-up-btn">
-              Cart : {}
+            <Link href="/cart">
+              <i
+                style={{ fontSize: "20px" }}
+                class="fa-solid fa-cart-shopping"
+              ></i>
             </Link>
           </li>
         </ul>

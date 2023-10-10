@@ -17,16 +17,32 @@
   list-style: 1.3;
 }
 .btns {
+  flex-direction: column;
   gap: 12px;
 }
 .add-to-cart-btn {
+  /* width: 100%; */
   color: white;
-  background-color: blue;
+  background-color: navy;
   padding: 8px 10px;
   border-radius: 4px;
+  font-weight: bolder;
+}
+.add-to-cart-btn:hover {
+  background-color: aliceblue;
+  color: navy;
 }
 .go-to-cart-btn {
-  background-color: green;
+  background-color: lightgreen;
   padding: 5px 10px;
   border-radius: 4px;
+  font-weight: bolder;
+}
+.go-to-cart-btn:hover {
+  background-color: aliceblue;
+  color: green;
+}
+.card:hover {
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  transform: translate(0px, -8px);
 }

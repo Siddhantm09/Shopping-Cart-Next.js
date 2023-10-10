@@ -15,11 +15,11 @@ const Product = ({ product }) => {
       <div className="card-content flex">
         <h1>{product.title}</h1>
         <p>{product.description}</p>
-        <p>Price: {product.price}</p>
+        <p style={{ fontWeight: "bold" }}>Price: {product.price}</p>
         <p>Rating: {product.rating}/5</p>
         <p>Items left: {product.stock}</p>
         <p>Brand: {product.brand}</p>
-        <p>Category: {product.category}</p>
+        <p style={{ fontWeight: "bold" }}>Category: {product.category}</p>
         <div className="flex btns">
           <button className="add-to-cart-btn">Add to Cart</button>
           <button className="go-to-cart-btn">Go to Cart</button>
