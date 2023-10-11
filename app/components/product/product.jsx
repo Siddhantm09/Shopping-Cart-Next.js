@@ -13,7 +13,7 @@ const Product = ({ product }) => {
         style={{ borderRadius: "5px" }}
       />
       <div className="card-content flex">
-        <h1>{product.title}</h1>
+        <h2>{product.title}</h2>
         <p>{product.description}</p>
         <p style={{ fontWeight: "bold" }}>Price: {product.price}</p>
         <p>Rating: {product.rating}/5</p>
