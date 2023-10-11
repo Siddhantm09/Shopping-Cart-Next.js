@@ -5,6 +5,8 @@
   background-color: white;
   justify-content: space-between;
   align-items: center;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.3);
+  overflow: hidden;
 }
 
 .links ul {
@@ -20,6 +22,12 @@
   height: 40px;
 }
 .lists {
+  display: block;
+  list-style: none;
+  text-decoration: none;
+}
+.lists-mob {
+  display: block;
   list-style: none;
   text-decoration: none;
 }
@@ -43,4 +51,37 @@
   text-decoration: none;
   color: black;
   background-color: lightgreen;
+}
+
+@media screen and (max-width: 768px) {
+  .lists,
+  .sign-up-btn {
+    display: none;
+  }
+}
+@media screen and (max-width: 414px) {
+  .links ul {
+    gap: 5px;
+  }
+  .search-btn {
+    width: 30px;
+    height: 35px;
+  }
+  .search-box {
+    height: 35px;
+    padding: 5px;
+  }
+}
+@media screen and (max-width: 360px) {
+  .nav-container {
+    padding: 10px 10px;
+  }
+  .search-btn {
+    width: 25px;
+    height: 35px;
+  }
+  .search-box {
+    height: 35px;
+    padding: 5px;
+  }
 }
