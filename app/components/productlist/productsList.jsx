@@ -1,19 +1,31 @@
+"use client";
 import React from "react";
 import Product from "../product/product";
 import "./productsList.css";
-const ProductList = async () => {
-  const result = await fetch("https://dummyjson.com/products");
-  const results = await result.json();
-  const products = results.products;
+import { loadProducts } from "@/app/GlobalRedux/Features/productSlice";
+import { useDispatch, useSelector } from "react-redux";
+import axios from "axios";
+import { useState } from "react";
+const ProductList = () => {
+  const dispatch = useDispatch();
+  const { products, loading, errReq } = useSelector(
+    (state) => state.productSlice
+  );
+  const result = axios
+    .get("https://dummyjson.com/products")
+    .then((response) => dispatch(loadProducts(response.data.products)));
 
   return (
-    <div className="card-container">
+    <section className="card-container">
+      {/* {errReq && <h1>Please wait...</h1>}
+      <br /> */}
+      {loading && <h1>Loading!!!</h1>}
       {products.map((product) => (
         <div key={product.id}>
           <Product product={product} />
         </div>
       ))}
-    </div>
+    </section>
   );
 };
 
