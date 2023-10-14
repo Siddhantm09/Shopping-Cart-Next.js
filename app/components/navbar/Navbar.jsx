@@ -13,23 +13,15 @@ const Navbar = () => {
       </div>
       <div className="links">
         <ul className="flex">
-          {/* <li className="lists">
-            <Link href="/signup">Home</Link>
-          </li> */}
-
           <li className="lists-mob flex">
             <input className="search-box" placeholder="Search..." />
             <button className="search-btn">
               <i className="fa-solid fa-magnifying-glass"></i>
             </button>
           </li>
-          {/* <li className="lists flex">
-            <Link href="/signup" className="sign-up-btn">
-              Sign up
-            </Link>
-          </li> */}
+
           <li className="lists-mob">
-            <Link href="/cart">
+            <Link href="/carts">
               <i
                 style={{ fontSize: "20px" }}
                 class="fa-solid fa-cart-shopping"

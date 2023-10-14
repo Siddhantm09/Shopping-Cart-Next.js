@@ -5,6 +5,6 @@ module.exports = nextConfig
 
 module.exports = {
     images: {
-        domains: ['i.dummyjson.com'],
+        domains: ["fakestoreapi.com", "i.dummyjson.com"],
     },
 }
