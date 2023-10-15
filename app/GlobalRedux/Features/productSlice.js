@@ -47,8 +47,11 @@ const productSlice = createSlice({
             // errLoading: (state, action) => {
             //     state.errReq = action.payload
             // }
+        },
+        setFilteredProducts: (state, action) => {
+            state.products = action.payload
         }
     }
 })
-export const { loadProducts, errLoading, addItem, removeItem, deleteItem } = productSlice.actions
+export const { loadProducts, errLoading, addItem, removeItem, deleteItem, setFilteredProducts } = productSlice.actions
 export default productSlice.reducer

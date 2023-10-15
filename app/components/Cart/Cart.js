@@ -9,8 +9,9 @@ const Cart = () => {
 
     const dispatch = useDispatch()
     const cart = useSelector((state) => state.productSlice.cart);
-    console.log(cart.length);
+
     const TotalPrice = cart.reduce((acc, curr) => acc = acc + curr.price * curr.quantity, 0)
+    const TotalTax = cart.reduce((acc, curr) => acc = acc + curr.price % 100 * curr.quantity, 0)
     return (
         <div className="cart-page">
             <table>
@@ -59,16 +60,16 @@ const Cart = () => {
                 <table>
                     <tr>
                         <td>Subtotal</td>
-                        <td>{TotalPrice}</td>
+                        <td>{TotalPrice.toFixed(2)}</td>
 
                     </tr>
                     <tr>
                         <td>Tax</td>
-                        <td>35 Rs</td>
+                        <td>{TotalTax.toFixed(2)}</td>
                     </tr>
                     <tr>
                         <td>Total</td>
-                        <td>{TotalPrice + 35}</td>
+                        <td>{(TotalPrice + TotalTax).toFixed(2)}</td>
                     </tr>
                 </table>
             </div>}

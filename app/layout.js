@@ -3,8 +3,6 @@ import './globals.css'
 import { Inter } from 'next/font/google'
 import { Providers } from './GlobalRedux/provider'
 
-
-
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata = {
@@ -21,8 +19,8 @@ export default function RootLayout({ children }) {
 
       </head>
       <body className={inter.className}>
-        <Navbar />
-        <Providers>{children}</Providers>
+
+        <Providers><Navbar />{children}</Providers>
 
       </body>
     </html>

@@ -17,7 +17,7 @@ const Product = ({ product }) => {
       <Image
         src={product.image}
         width={280}
-        height={200}
+        height={250}
         alt="Logo"
         quality={100}
         style={{ borderRadius: "5px" }}
@@ -25,12 +25,16 @@ const Product = ({ product }) => {
       <div className="card-content flex">
         <h2>{product.title}</h2>
         <p>{product.description}</p>
-        <p style={{ fontWeight: "bold" }}>Price: {product.price}</p>
+        <p style={{ fontWeight: "bold", fontSize: "18px" }}>
+          Price: {product.price}
+        </p>
         <p>Rating: {product.rating.rate}/5</p>
-        <p>Rating: {product.rating.count}/5</p>
+        <p>Reviews: {product.rating.count}</p>
         {/* <p>Items left: {product.stock}</p> */}
         {/* <p>Brand: {product.brand}</p> */}
-        <p style={{ fontWeight: "bold" }}>Category: {product.category}</p>
+        <p style={{ fontWeight: "bold" }}>
+          Category: {product.category.toUpperCase()}
+        </p>
         <div className="flex btns">
           <button className="add-to-cart-btn" onClick={addToCart}>
             Add to Cart
