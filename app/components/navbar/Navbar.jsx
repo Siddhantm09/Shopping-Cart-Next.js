@@ -46,7 +46,7 @@ const Navbar = () => {
             <Link href="/carts">
               <i
                 style={{ fontSize: "20px" }}
-                className="fa-solid fa-cart-shopping"
+                className=" cart-icon fa-solid fa-cart-shopping"
               ></i>
             </Link>
           </li>

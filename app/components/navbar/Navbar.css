@@ -54,7 +54,9 @@
   color: black;
   background-color: lightgreen;
 }
-
+.cart-icon {
+  color: #542c7c;
+}
 @media screen and (max-width: 768px) {
   .lists,
   .sign-up-btn {
