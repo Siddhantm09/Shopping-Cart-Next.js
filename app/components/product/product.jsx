@@ -35,7 +35,7 @@ const Product = ({ product }) => {
           <button className="add-to-cart-btn" onClick={addToCart}>
             Add to Cart
           </button>
-          <Link href="/cart">
+          <Link href="/carts">
             <button className="go-to-cart-btn">Go to Cart</button>
           </Link>
         </div>

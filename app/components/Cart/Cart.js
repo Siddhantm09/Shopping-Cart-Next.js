@@ -2,26 +2,29 @@
 import React from "react";
 import "./cart.css";
 import Image from "next/image";
-import { useSelector } from "react-redux";
-import productSlice from "@/app/GlobalRedux/Features/productSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { addItem, deleteItem, removeItem } from "@/app/GlobalRedux/Features/productSlice";
 
 const Cart = () => {
-    const cart = useSelector((state) => state.productSlice.cart);
 
+    const dispatch = useDispatch()
+    const cart = useSelector((state) => state.productSlice.cart);
+    console.log(cart.length);
+    const TotalPrice = cart.reduce((acc, curr) => acc = acc + curr.price * curr.quantity, 0)
     return (
         <div className="cart-page">
             <table>
                 <tr>
                     <th>Product</th>
                     <th>Quantity</th>
-                    <th>Subtotal</th>
+                    <th>Price</th>
                 </tr>
-                <tr>
-                    {cart.map((cartItem) => (
+                {cart.map((cartItem) => (
+                    <tr>
+
                         <>
                             <td>
                                 <div className="cart-info">
-
                                     <>
                                         <Image
                                             className="image"
@@ -34,26 +37,30 @@ const Cart = () => {
                                             <div>{cartItem.title}</div>
                                             <small>{cartItem.price}</small>
                                             <br />
-                                            <a>Remove</a>
+                                            <button onClick={() => dispatch(deleteItem(cartItem.id))}>Remove</button>
                                         </div>
                                     </>
-
-
                                 </div>
                             </td>
                             <td>
-                                <input type="number" placeholder="" />
+                                <td className="quantity flex">
+                                    <button onClick={() => dispatch(addItem(cartItem.id))} className="plus-minus-btn">+</button>
+                                    <span>{cartItem.quantity}</span>
+                                    <button onClick={() => dispatch(removeItem(cartItem.id))} className="plus-minus-btn">-</button>
+                                </td>
                             </td>
                             <td>{cartItem.price}</td>
                         </>
-                    ))}
-                </tr>
+
+                    </tr>
+                ))}
             </table>
-            <div className="total-price">
+            {cart.length > 0 && <div className="total-price">
                 <table>
                     <tr>
                         <td>Subtotal</td>
-                        <td>200 Rs</td>
+                        <td>{TotalPrice}</td>
+
                     </tr>
                     <tr>
                         <td>Tax</td>
@@ -61,11 +68,18 @@ const Cart = () => {
                     </tr>
                     <tr>
                         <td>Total</td>
-                        <td>230 Rs</td>
+                        <td>{TotalPrice + 35}</td>
                     </tr>
                 </table>
+            </div>}
+            <div style={{ marginTop: '50px' }}>
+                {cart.length == 0 && <div className="empty">
+                    <h2>Your cart Is empty! <a href="/">Shop now</a></h2>
+                </div>
+                }
             </div>
         </div>
+
     );
 };
 

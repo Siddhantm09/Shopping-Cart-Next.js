@@ -8,7 +8,13 @@ const Navbar = () => {
     <div className="nav-container flex">
       <div className="logo">
         <Link className="" href="/">
-          <Image src={logo} width={80} height={70} alt="logo"></Image>
+          <Image
+            priority={true}
+            src={logo}
+            width={80}
+            height={70}
+            alt="logo"
+          ></Image>
         </Link>
       </div>
       <div className="links">
@@ -24,7 +30,7 @@ const Navbar = () => {
             <Link href="/carts">
               <i
                 style={{ fontSize: "20px" }}
-                class="fa-solid fa-cart-shopping"
+                className="fa-solid fa-cart-shopping"
               ></i>
             </Link>
           </li>
