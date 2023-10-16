@@ -8,7 +8,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { setFilteredProducts } from "@/app/GlobalRedux/Features/productSlice";
 const Navbar = () => {
   const [value, setValue] = useState("");
-  const products = useSelector((state) => state.productSlice.products);
+  const { products, cart } = useSelector((state) => state.productSlice);
   const dispatch = useDispatch();
   const filterProducts = () => {
     const filteredProducts = products.filter((product) =>
@@ -43,12 +43,35 @@ const Navbar = () => {
           </li>
 
           <li className="lists-mob">
-            <Link href="/carts">
+            <Link href="/carts" style={{ position: "relative" }}>
               <i
-                style={{ fontSize: "20px" }}
+                style={{ fontSize: "22px" }}
                 className=" cart-icon fa-solid fa-cart-shopping"
               ></i>
+              {cart.length > 0 && (
+                <i
+                  style={{
+                    fontSize: "23px",
+                    position: "absolute",
+                    bottom: "13px",
+                    left: "16px",
+                  }}
+                  class="fa-solid fa-circle"
+                ></i>
+              )}
             </Link>
+            {cart.length > 0 && (
+              <h5
+                style={{
+                  position: "absolute",
+                  top: "12px",
+                  right: "14px",
+                  color: "white",
+                }}
+              >
+                {cart.length}
+              </h5>
+            )}
           </li>
         </ul>
       </div>
