@@ -4,7 +4,7 @@ import "./cart.css";
 import Image from "next/image";
 import { useDispatch, useSelector } from "react-redux";
 import { addItem, deleteItem, removeItem } from "@/app/GlobalRedux/Features/productSlice";
-
+import { checkout } from "@/app/checkout";
 const Cart = () => {
 
     const dispatch = useDispatch()
@@ -70,6 +70,13 @@ const Cart = () => {
                     <tr>
                         <td>Total</td>
                         <td>{(TotalPrice + TotalTax).toFixed(2)}</td>
+                    </tr>
+                    <tr>
+                        <button onClick={(() => {
+                            checkout({
+                                lineItems: [{ price: "price_1O1tclSBqo1sg80Pj4hAs4aN", quantity: 1 }]
+                            })
+                        })}>Proceed to checkout</button>
                     </tr>
                 </table>
             </div>}
